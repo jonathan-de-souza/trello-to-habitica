@@ -1,0 +1,24 @@
+{
+  "name": "trello-to-habitica",
+  "version": "1.0.0",
+  "description": "A little application on Node.js that integrate trello to habitica (both ways)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathan-de-souza/trello-to-habitica.git"
+  },
+  "keywords": [
+    "trello",
+    "habitica",
+    "node.js"
+  ],
+  "author": "Jonathan de Souza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathan-de-souza/trello-to-habitica/issues"
+  },
+  "homepage": "https://github.com/jonathan-de-souza/trello-to-habitica#readme"
+}
