@@ -3,7 +3,14 @@
 var rest = require('restler');
 var config = require('../config/config.js');
 
-exports.trelloWHCallback = function (req, res) {
+exports.trelloWHCallbackPost = function (req, res) {
+    console.log('-------------------------------------------------');
+    console.log(res);
+    console.log('-------------------------------------------------');
+};
+
+
+exports.trelloWHCallbackGet = function (req, res) {
     console.log('-------------------------------------------------');
     console.log(res);
     console.log('-------------------------------------------------');
