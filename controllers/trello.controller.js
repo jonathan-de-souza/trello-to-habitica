@@ -12,9 +12,10 @@ exports.trelloWHCallbackPost = function (req, res) {
             type: 'todo',
             notes: 'board name: ' + obj.data.board.name + ' board id: ' + obj.data.board.id
         };
-    }
 
-    habiticaCtrl.createHabiticaTasks(obj);
+        habiticaCtrl.createHabiticaTasks(task);
+    }
+    
     res.send('<p>ok</p>');
 };
 
