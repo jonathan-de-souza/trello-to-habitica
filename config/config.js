@@ -12,11 +12,15 @@ var headers = {
     'x-api-key': '1adfa9da-c707-4e5b-8e3a-71f23b84e6aa'
 }
 
+//heroku configs
+var heroku_api = 'https://trello-to-habitica-hk.herokuapp.com'; 
+
 module.exports = {
 	habitica_apiKey: habiticaApiKey,
     habitica_userId: habiticaUserId,
     trello_key: trelloKey,
     trello_token: trelloToken,
     trello_boardId: boardId,
-    trello_headers: headers
+    trello_headers: headers,
+    heroku_api: heroku_api
 };
