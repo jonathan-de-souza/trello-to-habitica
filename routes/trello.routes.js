@@ -8,5 +8,5 @@ module.exports = (app) => {
         .post(trelloCtrl.trelloWHCallback);
 
     app.route('/trello/createTrelloWebhooker')
-        .post(trelloCtrl.createTrelloWebhooker);
+        .get(trelloCtrl.createTrelloWebhooker);
 };
