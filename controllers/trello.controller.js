@@ -5,14 +5,16 @@ var config = require('../config/config.js');
 
 exports.trelloWHCallbackPost = function (req, res) {
     console.log('-------------------------------------------------');
-    console.log(res);
+    console.log(req);
+    res.send('<p>ok</p>');
     console.log('-------------------------------------------------');
 };
 
 
 exports.trelloWHCallbackGet = function (req, res) {
     console.log('-------------------------------------------------');
-    console.log(res);
+    console.log(req);
+    res.send('<p>ok</p>');
     console.log('-------------------------------------------------');
 };
 
