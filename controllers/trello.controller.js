@@ -5,7 +5,7 @@ var config = require('../config/config.js');
 var habiticaCtrl = require('./habitica.controller.js');
 
 exports.trelloWHCallbackPost = function (req, res) {
-    if (req.body.action.typ == 'createCard') {
+    if (req.body.action.type == 'createCard') {
         var obj = req.body.action;
         var task = {
             text: obj.data.card.name + ' trello card id: ' + obj.data.card.id,
