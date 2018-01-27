@@ -2,10 +2,10 @@
   "name": "trello-to-habitica",
   "version": "1.0.0",
   "description": "A little application on Node.js that integrate trello to habitica (both ways)",
-  "main": "index.js",
-  "start": "index.js",
+  "main": "index.js",  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
