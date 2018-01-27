@@ -5,8 +5,7 @@ var config = require('../config/config.js');
 
 exports.trelloWHCallbackPost = function (req, res) {
     console.log('-------------------------------------------------');
-    console.log(req);
-    res.send('<p>ok</p>');
+    console.log(req.body.action);    
     console.log('-------------------------------------------------');
 };
 
