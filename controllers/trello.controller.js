@@ -2,11 +2,20 @@
 
 var rest = require('restler');
 var config = require('../config/config.js');
+var habiticaCtrl = require('./habitica.controller.js');
 
 exports.trelloWHCallbackPost = function (req, res) {
-    console.log('-------------------------------------------------');
-    console.log(req.body.action);    
-    console.log('-------------------------------------------------');
+    if (req.body.action.typ == 'createCard') {
+        var obj = req.body.action;
+        var task = {
+            text: obj.data.card.name + ' trello card id: ' + obj.data.card.id,
+            type: 'todo',
+            notes: 'board name: ' + obj.data.board.name + ' board id: ' + obj.data.board.id
+        };
+    }
+
+    habiticaCtrl.createHabiticaTasks(obj);
+    res.send('<p>ok</p>');
 };
 
 
