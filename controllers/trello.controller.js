@@ -7,6 +7,7 @@ var http = require('../utils/http.js');
 var trelloFunctions = require('../functions/trello.functions.js');
 
 exports.trelloWHCallbackPost = function (req, res) {
+    console.log(req.body);
     if (req.body.action.type == 'createCard' && req.body.data.list.name.toLowerCase() == config.initialListName.toLowerCase()) {
         var obj = req.body.action;
         var task = {
