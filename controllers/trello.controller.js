@@ -7,13 +7,12 @@ var http = require('../utils/http.js');
 var trelloFunctions = require('../functions/trello.functions.js');
 
 exports.trelloWHCallbackPost = function (req, res) {
-    console.log(req.body);
-    if (req.body.action.type == 'createCard' && req.body.data.list.name.toLowerCase() == config.initialListName.toLowerCase()) {
-        var obj = req.body.action;
+    var action = req.body.action;
+    if (action.type == 'createCard' && action.data.list.name.toLowerCase() == config.initialListName.toLowerCase()) {
         var task = {
-            text: obj.data.card.name,
+            text: action.data.card.name,
             type: 'todo',
-            notes: 'board name: ' + obj.data.board.name + ' \nboard id: ' + obj.data.board.id + ' \ntrello card id: ' + obj.data.card.id
+            notes: 'board name: ' + action.data.board.name + ' \nboard id: ' + action.data.board.id + ' \ntrello card id: ' + action.data.card.id
         };
 
         habiticaCtrl.createHabiticaTasks(task);
@@ -35,12 +34,12 @@ exports.test = function (req, res) {
 };
 
 exports.createTrelloWebhooker = (req, res) => {
-    var trelloBoardId = req.query.trelloBoardId;    
+    var trelloBoardId = req.query.trelloBoardId;
 
     if (trelloBoardId == undefined) {
         res.send('<p>ERROR: trello board id is required. Pass it as a query param. Example: url/trello/createTrelloWebhooker?trelloBoardId=id</p>');
         return;
-    }        
+    }
 
     var url = 'https://api.trello.com/1/tokens/' + config.trello_token + '/webhooks/?key=' + config.trello_key;
     var data = {
