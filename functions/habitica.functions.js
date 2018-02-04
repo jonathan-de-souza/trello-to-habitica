@@ -6,7 +6,7 @@ exports.returnHabiticaStatus = (ret, res) => {
 };
 
 exports.scoreTaskReturn = (ret, taskId) => {
-    if(id) {
+    if(taskId) {
         cardTaskId.remove({ taskId: taskId }, function (err) {
             if (err) {
                 message: utils.getErrorMessageFromModel(err);
