@@ -42,5 +42,5 @@ exports.completeTask = (id) => {
 
     console.log(data);
 
-    http.postJson(url, data, undefined, options, habiticaFunctions.scoreTaskReturn);
+    http.postJson(url, data, options, habiticaFunctions.scoreTaskReturn, id);
 }
