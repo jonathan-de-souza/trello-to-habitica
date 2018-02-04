@@ -3,7 +3,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var express = require('express');
 var config = require('./config/config.js');
-var rest = require('restler');
+var http = require('./utils/http.js');
+var habiticaFunctions = require('./functions/habitica.functions.js');
 
 var app = express();
 
@@ -14,15 +15,15 @@ app.listen(process.env.PORT, () => {
     console.log('API Runningo on PORT: ' + process.env.PORT + ' and Env: ' + process.env.NODE_ENV);
 });
 
-// check if habitica api is up
-// rest.get('https://habitica.com/api/v3/status').on('complete', function (result) {
-//     if (result instanceof Error) {
-//         console.log('Error:', result.message);
-//         this.retry(5000); // try again after 5 sec
-//     } else {
-//         console.log(result);
-//     } do
-// });
+
+//check if habitica api is up
+
+var checkHabiticaStatus = () => {
+var url = 'https://habitica.com/api/v3/status'; 
+    http.get(url, undefined, habiticaFunctions.returnHabiticaStatus)
+}
+checkHabiticaStatus()
+// rest.get('https://habitica.com/api/v3/status').on('complete', testCb(result));
 
 //create a task on habitica
 // createHabiticaTaks = (tasks) => {
