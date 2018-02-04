@@ -16,6 +16,6 @@ exports.put = (url, data, res, callback) => {
 }
 
 //postJson 
-exports.postJson = (url, data, res, callback) => {
-    rest.postJson(url, data).on('complete', function (result) { callback(result, res) });
+exports.postJson = (url, data, res, options, callback) => {
+    rest.postJson(url, data, options).on('complete', function (result) { callback(result, res) });
 }

@@ -5,6 +5,7 @@ var config = require('../config/config.js');
 var habiticaCtrl = require('./habitica.controller.js');
 var http = require('../utils/http.js');
 var trelloFunctions = require('../functions/trello.functions.js');
+var cardTaskId = require('../domain/models/cards-tasks-id.js').CardsTasksId;
 
 exports.trelloWHCallbackPost = function (req, res) {
     var action = req.body.action;
@@ -15,7 +16,19 @@ exports.trelloWHCallbackPost = function (req, res) {
             notes: 'board name: ' + action.data.board.name + ' \nboard id: ' + action.data.board.id + ' \ntrello card id: ' + action.data.card.id
         };
 
-        habiticaCtrl.createHabiticaTasks(task);
+        habiticaCtrl.createHabiticaTasks(task, action.data.card.id);
+    }
+
+    if (action.type == 'updateCard' && action.data.list.name.toLowerCase() == config.finalListName.toLowerCase()) {
+
+        cardTaskId.findOne({ cardId: action.data.card.id}, function (err, doc){
+            if (err) {
+                message: Utils.getErrorMessageFromModel(err);
+                console.log(message);
+            } else {
+                habiticaCtrl.completeTask(doc.taskId);
+            }            
+          });        
     }
 
     res.send('<p>ok</p>');
