@@ -20,7 +20,7 @@ exports.trelloWHCallbackPost = function (req, res) {
         habiticaCtrl.createHabiticaTasks(task, action.data.card.id);
     }
 
-    if (action.type == 'updateCard' && action.data.list.name.toLowerCase() == config.finalListName.toLowerCase()) {
+    if (action.type == 'updateCard' && action.data.listAfter.name.toLowerCase() == config.finalListName.toLowerCase()) {
 
         cardTaskId.findOne({ cardId: action.data.card.id}, function (err, doc){
             if (err) {
