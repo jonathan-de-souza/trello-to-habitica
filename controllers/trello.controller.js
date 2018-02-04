@@ -7,12 +7,12 @@ var http = require('../utils/http.js');
 var trelloFunctions = require('../functions/trello.functions.js');
 
 exports.trelloWHCallbackPost = function (req, res) {
-    if (req.body.action.type == 'createCard') {
+    if (req.body.action.type == 'createCard' && req.data.list.name.toLowerCase() == config.initialListName.toLowerCase()) {
         var obj = req.body.action;
         var task = {
-            text: obj.data.card.name + ' trello card id: ' + obj.data.card.id,
+            text: obj.data.card.name,
             type: 'todo',
-            notes: 'board name: ' + obj.data.board.name + ' board id: ' + obj.data.board.id
+            notes: 'board name: ' + obj.data.board.name + ' \nboard id: ' + obj.data.board.id + ' \ntrello card id: ' + obj.data.card.id
         };
 
         habiticaCtrl.createHabiticaTasks(task);

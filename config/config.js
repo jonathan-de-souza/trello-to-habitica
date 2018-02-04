@@ -11,6 +11,8 @@ var headers = {
     'x-api-user': 'dcbefa9f-0b24-4a4e-bdf4-b4f2f985765e',
     'x-api-key': '1adfa9da-c707-4e5b-8e3a-71f23b84e6aa'
 }
+var initialListName = 'To Do';
+var finalListName = 'Done';
 
 //heroku configs
 var heroku_api = 'https://trello-to-habitica-hk.herokuapp.com'; 
@@ -22,5 +24,7 @@ module.exports = {
     trello_token: trelloToken,
     trello_boardId: boardId,
     trello_headers: headers,
-    heroku_api: heroku_api
+    heroku_api: heroku_api,
+    initialListName: initialListName,
+    finalListName: finalListName
 };
