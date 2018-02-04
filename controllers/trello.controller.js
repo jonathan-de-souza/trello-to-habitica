@@ -9,6 +9,7 @@ var cardTaskId = require('../domain/models/cards-tasks-id.js').CardsTasksId;
 
 exports.trelloWHCallbackPost = function (req, res) {
     var action = req.body.action;
+    console.log(action);
     if (action.type == 'createCard' && action.data.list.name.toLowerCase() == config.initialListName.toLowerCase()) {
         var task = {
             text: action.data.card.name,
