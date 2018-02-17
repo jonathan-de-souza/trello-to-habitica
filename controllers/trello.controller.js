@@ -63,5 +63,9 @@ exports.createTrelloWebhooker = (req, res) => {
         idModel: trelloBoardId
     };
 
-    http.postJson(url, data, res, trelloFunctions.createTrelloWebhookReturn);
+    rest.postJson(url, data).on('complete', function (data, response) {
+        res.send('<p>' + response + '</p>');
+    })
+
+    // http.postJson(url, data, res, trelloFunctions.createTrelloWebhookReturn);
 };
