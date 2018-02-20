@@ -81,3 +81,5 @@ node_modules/
 /src/Sit/SitApi/Logs
 
 *.xlsx
+
+/node_modules
